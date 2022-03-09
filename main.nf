@@ -20,6 +20,6 @@ process bcftools_view {
 
     script:
     """
-    bcftools view ${vcf} | head > ${sampleID}_output.txt
+    bcftools query -l ${vcf} > ${sampleID}_output.txt
     """
 }
