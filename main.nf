@@ -13,7 +13,7 @@ process bcftools_view {
     echo true
 
     input:
-	tuple val(sampleID), val(vcf), val(index) from vcf_input
+	tuple val(sampleID), file(vcf), file(index) from vcf_input
 
 	output:
 	file("${sampleID}_output.txt")
