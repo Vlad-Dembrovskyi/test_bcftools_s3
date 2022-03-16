@@ -13,7 +13,7 @@ process bcftools_view {
     echo true
 	container = 'quay.io/lifebitai/bcftools:latest'
 	containerOptions = '-v /etc/ssl:/etc/ssl -v /usr/local/share/ca-certificates:/usr/local/share/ca-certificates'
-	
+
     input:
 	tuple val(sampleID), val(vcf), val(index) from vcf_input
 
@@ -22,6 +22,6 @@ process bcftools_view {
 
     script:
     """
-    bcftools view ${vcf} | head > ${sampleID}_output.txt
+    bcftools query -l s3:/${vcf} > ${sampleID}_output.txt
     """
 }
