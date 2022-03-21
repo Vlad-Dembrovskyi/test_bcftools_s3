@@ -11,7 +11,7 @@ process bcftools_view {
 	publishDir "${params.outdir}/head", mode: 'copy'
 
     echo true
-	container = 'quay.io/lifebitai/bcftools:latest'
+	container = 'quay.io/lifebitai/bcftools:RE20-4857-IS-617-v5'
 	containerOptions = '-v /etc/ssl:/etc/ssl -v /usr/local/share/ca-certificates:/usr/local/share/ca-certificates'
 
     input:
